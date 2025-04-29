@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.big.mapper.ReviewMapper">
+
+	<!-- 리뷰 추가 -->
+	<insert id="insertReview" parameterType="org.big.dto.ReviewDto">
+		INSERT INTO reviews
+			(movie_id, user_id, review_title, content, rating, created_at)
+		VALUES
+			(#{movie_id}, #{user_id}, #{review_title}, #{content}, #{rating},
+		NOW());
+	</insert>
+
+	<!-- 특정 영화의 리뷰 목록 가져오기 -->
+	<select id="getReviewsByMovieId" parameterType="long"
+		resultType="org.big.dto.ReviewDto">
+		SELECT r.id, r.movie_id, r.user_id, r.review_title, r.content, r.rating,
+			date_format(r.created_at, '%Y/%m/%d') AS dates,
+			(SELECT COUNT(*) FROM likes WHERE review_id = r.id) AS like_count,
+			u.member_id
+		FROM reviews r
+		JOIN users u ON r.user_id = u.id
+		WHERE r.movie_id = #{movie_id}
+		ORDER BY r.id DESC
+	</select>
+	
+	<!-- 페이징된 리뷰 목록 가져오기 -->
+	<select id="getPagedReviewsByMovieId" resultType="org.big.dto.ReviewDto">
+		SELECT r.id, r.movie_id, r.user_id, r.review_title, r.content, r.rating,
+			DATE_FORMAT(r.created_at, '%Y/%m/%d') AS dates,
+			(SELECT COUNT(*) FROM likes WHERE review_id = r.id) AS like_count,
+			u.member_id
+		FROM reviews r
+		JOIN users u ON r.user_id = u.id
+		WHERE r.movie_id = #{movie_id}
+		ORDER BY r.id DESC
+		LIMIT #{pageSize} OFFSET #{offset}
+	</select>
+	
+	<!-- 전체 리뷰 수 -->
+	<select id="countReviewsByMovieId" resultType="int">
+		SELECT COUNT(*) FROM reviews
+		WHERE movie_id = #{movie_id}
+	</select>
+	
+	<!-- 검색된 리뷰 목록 가져오기 -->
+	<select id="searchReviews" resultType="org.big.dto.ReviewDto">
+		SELECT r.id, r.movie_id, r.user_id, r.review_title, r.content, r.rating,
+			DATE_FORMAT(r.created_at, '%Y/%m/%d') AS dates,
+			(SELECT COUNT(*) FROM likes WHERE review_id = r.id) AS like_count,
+			u.member_id
+		FROM reviews r
+		JOIN users u ON r.user_id = u.id
+		WHERE r.movie_id = #{movie_id}
+		<choose>
+			<when test="type eq 'subject'">
+				AND r.review_title LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+			<when test="type eq 'content'">
+				AND r.content LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+			<when test="type eq 'name'">
+				AND u.member_id LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+		</choose>
+		ORDER BY r.id DESC
+		LIMIT #{pageSize} OFFSET #{offset}
+	</select>
+	
+	<!-- 검색 결과 수 -->
+	<select id="countSearchReviews" resultType="int">
+		SELECT COUNT(*)
+		FROM reviews r
+		JOIN users u ON r.user_id = u.id
+		WHERE r.movie_id = #{movie_id}
+		<choose>
+			<when test="type eq 'subject'">
+				AND r.review_title LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+			<when test="type eq 'content'">
+				AND r.content LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+			<when test="type eq 'name'">
+				AND u.member_id LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+		</choose>
+	</select>
+
+	<!-- 특정 리뷰 가져오기 -->
+	<select id="getReviewsByReviewId" parameterType="long"
+		resultType="org.big.dto.ReviewDto">
+		SELECT r.id, r.movie_id, r.user_id, r.review_title, r.content, r.rating,
+			date_format(r.created_at, '%Y/%m/%d') AS dates,
+			(SELECT COUNT(*) FROM likes WHERE review_id = r.id) AS like_count,
+			u.member_id
+		FROM reviews r
+		JOIN users u ON r.user_id = u.id
+		WHERE r.id = #{review_id}
+	</select>
+
+	<!-- 리뷰 삭제 하기 -->
+	<delete id="reviewDelete" parameterType="long">
+		DELETE
+		FROM reviews
+		WHERE id = #{review_id}
+	</delete>
+
+</mapper>
