@@ -56,8 +56,6 @@ Movie Reviews
 ---
 
 ## 주요 화면
-<details>
-<summary>주요화면 보기</summary>
   
 - 회원가입
   
@@ -78,8 +76,6 @@ Movie Reviews
 - 리뷰
 
  ![Image](https://github.com/user-attachments/assets/554e6ffa-1ead-449a-84c8-ba7ed5ffa267)
- 
-</details>
 
 ---
 
