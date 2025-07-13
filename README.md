@@ -36,7 +36,7 @@ TMDB API를 활용하여 최신 영화 정보를 가져오고, 사용자 중심�
 ---
 
 ## 프로젝트 구조
-<details>
+
 <summary>프로젝트 구조 보기</summary>
 Movie Reviews
 
@@ -55,7 +55,7 @@ Movie Reviews
 ├── views/ (JSP)
 
 └── static/ (CSS, JS)
-</details>
+
 
 ---
 
@@ -63,23 +63,23 @@ Movie Reviews
   
 - 회원가입
   
- ![회원가입](https://github.com/user-attachments/assets/baf82121-ef2a-477b-82ca-8ada99c17f33)
+ ![회원가입](https://github.com/user-attachments/assets/c1b70303-b55a-43ae-88c9-b5486c2bd5a4)
 
 - 로그인
 
- ![로그인](https://github.com/user-attachments/assets/0eac992c-4fd0-4d48-86e7-30e7c8cd2831)
+ ![로그인](https://github.com/user-attachments/assets/c45c6628-a7c4-4416-aa44-8ac82410bbd9)
 
 - 영화 목록
 
- ![영화목록](https://github.com/user-attachments/assets/1d033044-9712-4f03-98ad-99c1f574d9e2)
+ ![영화목록](https://github.com/user-attachments/assets/2a7ec4d7-98fa-4f2d-8f1f-c3dec8db19cc)
 
 - 리뷰 목록
 
- ![리뷰목록](https://github.com/user-attachments/assets/37b2b3ee-8178-4719-b402-7cfa64428638)
+ ![리뷰목록](https://github.com/user-attachments/assets/74a282cb-2a32-4887-8f1c-5c8e6a801070)
 
 - 리뷰
 
- ![리뷰](https://github.com/user-attachments/assets/554e6ffa-1ead-449a-84c8-ba7ed5ffa267)
+ ![리뷰](https://github.com/user-attachments/assets/c74a6a1d-dddf-4dc6-9fa1-a568d1557414)
 
 ---
 
