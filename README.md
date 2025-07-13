@@ -31,6 +31,10 @@ TMDB API를 활용하여 최신 영화 정보를 가져오고, 사용자 중심�
 
 ---
 
+###
+
+---
+
 ## 프로젝트 구조
 <details>
 <summary>프로젝트 구조 보기</summary>
@@ -59,23 +63,23 @@ Movie Reviews
   
 - 회원가입
   
- ![Image](https://github.com/user-attachments/assets/baf82121-ef2a-477b-82ca-8ada99c17f33)
+ ![회원가입](https://github.com/user-attachments/assets/baf82121-ef2a-477b-82ca-8ada99c17f33)
 
 - 로그인
 
- ![Image](https://github.com/user-attachments/assets/0eac992c-4fd0-4d48-86e7-30e7c8cd2831)
+ ![로그인](https://github.com/user-attachments/assets/0eac992c-4fd0-4d48-86e7-30e7c8cd2831)
 
 - 영화 목록
 
- ![Image](https://github.com/user-attachments/assets/1d033044-9712-4f03-98ad-99c1f574d9e2)
+ ![영화목록](https://github.com/user-attachments/assets/1d033044-9712-4f03-98ad-99c1f574d9e2)
 
 - 리뷰 목록
 
- ![Image](https://github.com/user-attachments/assets/37b2b3ee-8178-4719-b402-7cfa64428638)
+ ![리뷰목록](https://github.com/user-attachments/assets/37b2b3ee-8178-4719-b402-7cfa64428638)
 
 - 리뷰
 
- ![Image](https://github.com/user-attachments/assets/554e6ffa-1ead-449a-84c8-ba7ed5ffa267)
+ ![리뷰](https://github.com/user-attachments/assets/554e6ffa-1ead-449a-84c8-ba7ed5ffa267)
 
 ---
 
