@@ -71,26 +71,19 @@ OTT 서비스와 영화 콘텐츠 소비가 증가하면서, 사용자들이 자
 
 ## 프로젝트 구조
 
+```
 <summary>프로젝트 구조 보기</summary>
+
 Movie Reviews
-
 ├── common/
-
 ├── configuration/
-
 ├── controller/
-
 ├── dto/
-
 ├── mapper/
-
 ├── service/
-
-├── views/ (JSP)
-
-└── static/ (CSS, JS)
-
-
+├── views/       #JSP
+└── static/      #CSS, JS
+```
 ---
 
 ## 주요 화면
